@@ -8,3 +8,5 @@ require (
 	github.com/gostaticanalysis/comment v1.4.0
 	golang.org/x/tools v0.0.0-20200831203904-5a2aa26beb65
 )
+
+replace github.com/gostaticanalysis/analysisutil => ./../../../analysisutil

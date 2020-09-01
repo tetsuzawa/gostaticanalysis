@@ -1,9 +1,9 @@
 package ruleosopen
 
 import (
-	"fmt"
 	"github.com/gostaticanalysis/analysisutil"
 	"go/ast"
+	"go/token"
 	"go/types"
 	"golang.org/x/tools/go/analysis/passes/buildssa"
 	"golang.org/x/tools/go/ssa"
@@ -54,8 +54,8 @@ func run(pass *analysis.Pass) (interface{}, error) {
 			continue
 		}
 
-		for k, b := range f.Blocks {
-			fmt.Println(k)
+		for _, b := range f.Blocks {
+			poss := map[token.Pos]bool{}
 			for i, instr := range b.Instrs {
 				pos := instr.Pos()
 				//line := pass.Fset.File(pos).Line(pos)
@@ -71,8 +71,9 @@ func run(pass *analysis.Pass) (interface{}, error) {
 
 				called, ok := analysisutil.CalledFrom(b, i, openTyp, methods...)
 				//ブロックの中で呼ばれかどうかを判定
-				if ok && !called {
+				if ok && !called && !poss[pos] {
 					pass.Reportf(pos, "NG")
+					poss[pos] = true
 				}
 			}
 		}
