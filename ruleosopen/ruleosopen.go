@@ -41,6 +41,7 @@ func run(pass *analysis.Pass) (interface{}, error) {
 	var methods []*types.Func
 	for _, s := range strings.Split(closeMethods, ",") {
 		if m := analysisutil.MethodOf(openTyp, s); m != nil {
+			// osパッケージからCloseという名前のmethodをとってくる
 			methods = append(methods, m)
 		}
 	}
