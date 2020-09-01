@@ -13,7 +13,6 @@ import (
 )
 
 const doc = "ruleosopen is ..."
-const closeMethods = "Close"
 
 // Analyzer is ...
 var Analyzer = &analysis.Analyzer{
@@ -27,6 +26,7 @@ var Analyzer = &analysis.Analyzer{
 
 const ImportPath = "os"
 const retTypeName = "*File"
+const closeMethods = "Close"
 
 func run(pass *analysis.Pass) (interface{}, error) {
 	funcs := pass.ResultOf[buildssa.Analyzer].(*buildssa.SSA).SrcFuncs
