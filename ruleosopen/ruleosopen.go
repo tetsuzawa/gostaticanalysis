@@ -1,6 +1,7 @@
 package ruleosopen
 
 import (
+	"fmt"
 	"github.com/gostaticanalysis/analysisutil"
 	"go/ast"
 	"go/types"
@@ -53,9 +54,10 @@ func run(pass *analysis.Pass) (interface{}, error) {
 			continue
 		}
 
-		for _, b := range f.Blocks {
-			for i := range b.Instrs {
-				pos := b.Instrs[i].Pos()
+		for k, b := range f.Blocks {
+			fmt.Println(k)
+			for i, instr := range b.Instrs {
+				pos := instr.Pos()
 				//line := pass.Fset.File(pos).Line(pos)
 
 				// skip
@@ -63,6 +65,9 @@ func run(pass *analysis.Pass) (interface{}, error) {
 				//	cmaps.IgnoreLine(pass.Fset, line, "unclosetx") {
 				//	continue
 				//}
+				if ex, ok := instr.(*ssa.Extract); ok {
+					pos = ex.Tuple.Pos()
+				}
 
 				called, ok := analysisutil.CalledFrom(b, i, openTyp, methods...)
 				//ブロックの中で呼ばれかどうかを判定

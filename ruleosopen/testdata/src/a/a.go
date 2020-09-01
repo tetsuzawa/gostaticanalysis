@@ -5,10 +5,11 @@ import (
 )
 
 func f1() {
-	os.Open("") //want "NG"
+	os.Open("_xxx") //want "NG"
+}
 
-	_, _ = os.Open("") //want "NG"
-
+func f5() {
+	_, _ = os.Open("_xxx") //want "NG"
 }
 
 func f2() {
