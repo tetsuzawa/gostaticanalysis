@@ -1,0 +1,409 @@
+File
+├── Doc
+├── Package = a.go:1:1
+├── Name
+│   └── Ident
+│       ├── NamePos = a.go:1:9
+│       ├── Name = a
+│       └── Obj
+├── Decls (length=4)
+│   ├── GenDecl
+│   │   ├── Doc
+│   │   ├── Tok = import
+│   │   └── Specs (length=1)
+│   │       └── ImportSpec
+│   │           ├── Doc
+│   │           ├── Name
+│   │           ├── Path
+│   │           │   └── BasicLit
+│   │           │       ├── Kind = STRING
+│   │           │       └── Value = "os"
+│   │           ├── Comment
+│   │           └── EndPos = -
+│   ├── FuncDecl
+│   │   ├── Doc
+│   │   ├── Recv
+│   │   ├── Name
+│   │   │   └── Ident
+│   │   │       ├── NamePos = a.go:5:6
+│   │   │       ├── Name = f1
+│   │   │       └── Obj
+│   │   │           └── Object
+│   │   │               ├── Kind = func
+│   │   │               ├── Name = f1
+│   │   │               ├── Decl = &ast.FuncDecl{Doc:(*ast.CommentGroup)(nil), Recv:(*ast.FieldList)(nil), Name:(*ast.Ident)(0xc00000c0e0), Type:(*ast.FuncType)(0xc00000c2a0), Body:(*ast.BlockStmt)(0xc000060360)}
+│   │   │               ├── Data = <nil>
+│   │   │               └── Type = <nil>
+│   │   ├── Type
+│   │   │   └── FuncType
+│   │   │       ├── Func = a.go:5:1
+│   │   │       ├── Params
+│   │   │       │   └── FieldList
+│   │   │       │       ├── Opening = a.go:5:8
+│   │   │       │       ├── List (length=0)
+│   │   │       │       └── Closing = a.go:5:9
+│   │   │       └── Results
+│   │   └── Body
+│   │       └── BlockStmt
+│   │           ├── Lbrace= a.go:5:11
+│   │           ├── List (length=3)
+│   │           │   ├── AssignStmt
+│   │           │   │   ├── Lhs (length=2)
+│   │           │   │   │   ├── Ident
+│   │           │   │   │   │   ├── NamePos = a.go:6:2
+│   │           │   │   │   │   ├── Name = f
+│   │           │   │   │   │   └── Obj
+│   │           │   │   │   │       └── Object
+│   │           │   │   │   │           ├── Kind = var
+│   │           │   │   │   │           ├── Name = f
+│   │           │   │   │   │           ├── Decl = &ast.AssignStmt{Lhs:[]ast.Expr{(*ast.Ident)(0xc00000c120), (*ast.Ident)(0xc00000c140)}, TokPos:43, Tok:47, Rhs:[]ast.Expr{(*ast.CallExpr)(0xc000020140)}}
+│   │           │   │   │   │           ├── Data = <nil>
+│   │           │   │   │   │           └── Type = <nil>
+│   │           │   │   │   └── Ident
+│   │           │   │   │       ├── NamePos = a.go:6:5
+│   │           │   │   │       ├── Name = _
+│   │           │   │   │       └── Obj
+│   │           │   │   │           └── Object
+│   │           │   │   │               ├── Kind = var
+│   │           │   │   │               ├── Name = _
+│   │           │   │   │               ├── Decl = &ast.AssignStmt{Lhs:[]ast.Expr{(*ast.Ident)(0xc00000c120), (*ast.Ident)(0xc00000c140)}, TokPos:43, Tok:47, Rhs:[]ast.Expr{(*ast.CallExpr)(0xc000020140)}}
+│   │           │   │   │               ├── Data = <nil>
+│   │           │   │   │               └── Type = <nil>
+│   │           │   │   ├── TokPos = a.go:6:7
+│   │           │   │   ├── Tok = :=
+│   │           │   │   └── Rhs (length=1)
+│   │           │   │       └── CallExpr
+│   │           │   │           ├── Fun
+│   │           │   │           │   └── SelectorExpr
+│   │           │   │           │       ├── X
+│   │           │   │           │       │   └── Ident
+│   │           │   │           │       │       ├── NamePos = a.go:6:10
+│   │           │   │           │       │       ├── Name = os
+│   │           │   │           │       │       └── Obj
+│   │           │   │           │       └── Sel
+│   │           │   │           │           └── Ident
+│   │           │   │           │               ├── NamePos = a.go:6:13
+│   │           │   │           │               ├── Name = Open
+│   │           │   │           │               └── Obj
+│   │           │   │           ├── Lparen = a.go:6:17
+│   │           │   │           ├── Args (length=1)
+│   │           │   │           │   └── BasicLit
+│   │           │   │           │       ├── Kind = STRING
+│   │           │   │           │       └── Value = "_xxx"
+│   │           │   │           ├── Ellipsis = -
+│   │           │   │           └── Rparen = a.go:6:24
+│   │           │   ├── DeferStmt
+│   │           │   │   ├── Defer = a.go:7:2
+│   │           │   │   └── Call
+│   │           │   │       └── CallExpr
+│   │           │   │           ├── Fun
+│   │           │   │           │   └── SelectorExpr
+│   │           │   │           │       ├── X
+│   │           │   │           │       │   └── Ident
+│   │           │   │           │       │       ├── NamePos = a.go:7:8
+│   │           │   │           │       │       ├── Name = f
+│   │           │   │           │       │       └── Obj
+│   │           │   │           │       │           └── Object
+│   │           │   │           │       │               ├── Kind = var
+│   │           │   │           │       │               ├── Name = f
+│   │           │   │           │       │               ├── Decl = &ast.AssignStmt{Lhs:[]ast.Expr{(*ast.Ident)(0xc00000c120), (*ast.Ident)(0xc00000c140)}, TokPos:43, Tok:47, Rhs:[]ast.Expr{(*ast.CallExpr)(0xc000020140)}}
+│   │           │   │           │       │               ├── Data = <nil>
+│   │           │   │           │       │               └── Type = <nil>
+│   │           │   │           │       └── Sel
+│   │           │   │           │           └── Ident
+│   │           │   │           │               ├── NamePos = a.go:7:10
+│   │           │   │           │               ├── Name = Close
+│   │           │   │           │               └── Obj
+│   │           │   │           ├── Lparen = a.go:7:15
+│   │           │   │           ├── Args (length=0)
+│   │           │   │           ├── Ellipsis = -
+│   │           │   │           └── Rparen = a.go:7:16
+│   │           │   └── ReturnStmt
+│   │           │       ├── Return = a.go:8:2
+│   │           │       └── Results
+│   │           └── Rbrace= a.go:9:1
+│   ├── FuncDecl
+│   │   ├── Doc
+│   │   ├── Recv
+│   │   ├── Name
+│   │   │   └── Ident
+│   │   │       ├── NamePos = a.go:11:6
+│   │   │       ├── Name = f2
+│   │   │       └── Obj
+│   │   │           └── Object
+│   │   │               ├── Kind = func
+│   │   │               ├── Name = f2
+│   │   │               ├── Decl = &ast.FuncDecl{Doc:(*ast.CommentGroup)(nil), Recv:(*ast.FieldList)(nil), Name:(*ast.Ident)(0xc00000c2e0), Type:(*ast.FuncType)(0xc00000c500), Body:(*ast.BlockStmt)(0xc000060450)}
+│   │   │               ├── Data = <nil>
+│   │   │               └── Type = <nil>
+│   │   ├── Type
+│   │   │   └── FuncType
+│   │   │       ├── Func = a.go:11:1
+│   │   │       ├── Params
+│   │   │       │   └── FieldList
+│   │   │       │       ├── Opening = a.go:11:8
+│   │   │       │       ├── List (length=0)
+│   │   │       │       └── Closing = a.go:11:9
+│   │   │       └── Results
+│   │   └── Body
+│   │       └── BlockStmt
+│   │           ├── Lbrace= a.go:11:11
+│   │           ├── List (length=4)
+│   │           │   ├── AssignStmt
+│   │           │   │   ├── Lhs (length=2)
+│   │           │   │   │   ├── Ident
+│   │           │   │   │   │   ├── NamePos = a.go:12:2
+│   │           │   │   │   │   ├── Name = f
+│   │           │   │   │   │   └── Obj
+│   │           │   │   │   │       └── Object
+│   │           │   │   │   │           ├── Kind = var
+│   │           │   │   │   │           ├── Name = f
+│   │           │   │   │   │           ├── Decl = &ast.AssignStmt{Lhs:[]ast.Expr{(*ast.Ident)(0xc00000c300), (*ast.Ident)(0xc00000c320)}, TokPos:113, Tok:47, Rhs:[]ast.Expr{(*ast.CallExpr)(0xc000020240)}}
+│   │           │   │   │   │           ├── Data = <nil>
+│   │           │   │   │   │           └── Type = <nil>
+│   │           │   │   │   └── Ident
+│   │           │   │   │       ├── NamePos = a.go:12:5
+│   │           │   │   │       ├── Name = _
+│   │           │   │   │       └── Obj
+│   │           │   │   │           └── Object
+│   │           │   │   │               ├── Kind = var
+│   │           │   │   │               ├── Name = _
+│   │           │   │   │               ├── Decl = &ast.AssignStmt{Lhs:[]ast.Expr{(*ast.Ident)(0xc00000c300), (*ast.Ident)(0xc00000c320)}, TokPos:113, Tok:47, Rhs:[]ast.Expr{(*ast.CallExpr)(0xc000020240)}}
+│   │           │   │   │               ├── Data = <nil>
+│   │           │   │   │               └── Type = <nil>
+│   │           │   │   ├── TokPos = a.go:12:7
+│   │           │   │   ├── Tok = :=
+│   │           │   │   └── Rhs (length=1)
+│   │           │   │       └── CallExpr
+│   │           │   │           ├── Fun
+│   │           │   │           │   └── SelectorExpr
+│   │           │   │           │       ├── X
+│   │           │   │           │       │   └── Ident
+│   │           │   │           │       │       ├── NamePos = a.go:12:10
+│   │           │   │           │       │       ├── Name = os
+│   │           │   │           │       │       └── Obj
+│   │           │   │           │       └── Sel
+│   │           │   │           │           └── Ident
+│   │           │   │           │               ├── NamePos = a.go:12:13
+│   │           │   │           │               ├── Name = Open
+│   │           │   │           │               └── Obj
+│   │           │   │           ├── Lparen = a.go:12:17
+│   │           │   │           ├── Args (length=1)
+│   │           │   │           │   └── BasicLit
+│   │           │   │           │       ├── Kind = STRING
+│   │           │   │           │       └── Value = "_xxx"
+│   │           │   │           ├── Ellipsis = -
+│   │           │   │           └── Rparen = a.go:12:24
+│   │           │   ├── DeferStmt
+│   │           │   │   ├── Defer = a.go:13:2
+│   │           │   │   └── Call
+│   │           │   │       └── CallExpr
+│   │           │   │           ├── Fun
+│   │           │   │           │   └── SelectorExpr
+│   │           │   │           │       ├── X
+│   │           │   │           │       │   └── Ident
+│   │           │   │           │       │       ├── NamePos = a.go:13:8
+│   │           │   │           │       │       ├── Name = f
+│   │           │   │           │       │       └── Obj
+│   │           │   │           │       │           └── Object
+│   │           │   │           │       │               ├── Kind = var
+│   │           │   │           │       │               ├── Name = f
+│   │           │   │           │       │               ├── Decl = &ast.AssignStmt{Lhs:[]ast.Expr{(*ast.Ident)(0xc00000c300), (*ast.Ident)(0xc00000c320)}, TokPos:113, Tok:47, Rhs:[]ast.Expr{(*ast.CallExpr)(0xc000020240)}}
+│   │           │   │           │       │               ├── Data = <nil>
+│   │           │   │           │       │               └── Type = <nil>
+│   │           │   │           │       └── Sel
+│   │           │   │           │           └── Ident
+│   │           │   │           │               ├── NamePos = a.go:13:10
+│   │           │   │           │               ├── Name = Close
+│   │           │   │           │               └── Obj
+│   │           │   │           ├── Lparen = a.go:13:15
+│   │           │   │           ├── Args (length=0)
+│   │           │   │           ├── Ellipsis = -
+│   │           │   │           └── Rparen = a.go:13:16
+│   │           │   ├── ExprStmt
+│   │           │   │   └── X
+│   │           │   │       └── CallExpr
+│   │           │   │           ├── Fun
+│   │           │   │           │   └── SelectorExpr
+│   │           │   │           │       ├── X
+│   │           │   │           │       │   └── Ident
+│   │           │   │           │       │       ├── NamePos = a.go:14:2
+│   │           │   │           │       │       ├── Name = f
+│   │           │   │           │       │       └── Obj
+│   │           │   │           │       │           └── Object
+│   │           │   │           │       │               ├── Kind = var
+│   │           │   │           │       │               ├── Name = f
+│   │           │   │           │       │               ├── Decl = &ast.AssignStmt{Lhs:[]ast.Expr{(*ast.Ident)(0xc00000c300), (*ast.Ident)(0xc00000c320)}, TokPos:113, Tok:47, Rhs:[]ast.Expr{(*ast.CallExpr)(0xc000020240)}}
+│   │           │   │           │       │               ├── Data = <nil>
+│   │           │   │           │       │               └── Type = <nil>
+│   │           │   │           │       └── Sel
+│   │           │   │           │           └── Ident
+│   │           │   │           │               ├── NamePos = a.go:14:4
+│   │           │   │           │               ├── Name = WriteString
+│   │           │   │           │               └── Obj
+│   │           │   │           ├── Lparen = a.go:14:15
+│   │           │   │           ├── Args (length=1)
+│   │           │   │           │   └── BasicLit
+│   │           │   │           │       ├── Kind = STRING
+│   │           │   │           │       └── Value = "aaaa"
+│   │           │   │           ├── Ellipsis = -
+│   │           │   │           └── Rparen = a.go:14:22
+│   │           │   └── ReturnStmt
+│   │           │       ├── Return = a.go:15:2
+│   │           │       └── Results
+│   │           └── Rbrace= a.go:16:1
+│   └── FuncDecl
+│       ├── Doc
+│       ├── Recv
+│       ├── Name
+│       │   └── Ident
+│       │       ├── NamePos = a.go:18:6
+│       │       ├── Name = f3
+│       │       └── Obj
+│       │           └── Object
+│       │               ├── Kind = func
+│       │               ├── Name = f3
+│       │               ├── Decl = &ast.FuncDecl{Doc:(*ast.CommentGroup)(nil), Recv:(*ast.FieldList)(nil), Name:(*ast.Ident)(0xc00000c520), Type:(*ast.FuncType)(0xc00000c760), Body:(*ast.BlockStmt)(0xc000060540)}
+│       │               ├── Data = <nil>
+│       │               └── Type = <nil>
+│       ├── Type
+│       │   └── FuncType
+│       │       ├── Func = a.go:18:1
+│       │       ├── Params
+│       │       │   └── FieldList
+│       │       │       ├── Opening = a.go:18:8
+│       │       │       ├── List (length=0)
+│       │       │       └── Closing = a.go:18:9
+│       │       └── Results
+│       └── Body
+│           └── BlockStmt
+│               ├── Lbrace= a.go:18:11
+│               ├── List (length=4)
+│               │   ├── AssignStmt
+│               │   │   ├── Lhs (length=2)
+│               │   │   │   ├── Ident
+│               │   │   │   │   ├── NamePos = a.go:19:2
+│               │   │   │   │   ├── Name = f
+│               │   │   │   │   └── Obj
+│               │   │   │   │       └── Object
+│               │   │   │   │           ├── Kind = var
+│               │   │   │   │           ├── Name = f
+│               │   │   │   │           ├── Decl = &ast.AssignStmt{Lhs:[]ast.Expr{(*ast.Ident)(0xc00000c540), (*ast.Ident)(0xc00000c560)}, TokPos:206, Tok:47, Rhs:[]ast.Expr{(*ast.CallExpr)(0xc0000203c0)}}
+│               │   │   │   │           ├── Data = <nil>
+│               │   │   │   │           └── Type = <nil>
+│               │   │   │   └── Ident
+│               │   │   │       ├── NamePos = a.go:19:5
+│               │   │   │       ├── Name = _
+│               │   │   │       └── Obj
+│               │   │   │           └── Object
+│               │   │   │               ├── Kind = var
+│               │   │   │               ├── Name = _
+│               │   │   │               ├── Decl = &ast.AssignStmt{Lhs:[]ast.Expr{(*ast.Ident)(0xc00000c540), (*ast.Ident)(0xc00000c560)}, TokPos:206, Tok:47, Rhs:[]ast.Expr{(*ast.CallExpr)(0xc0000203c0)}}
+│               │   │   │               ├── Data = <nil>
+│               │   │   │               └── Type = <nil>
+│               │   │   ├── TokPos = a.go:19:7
+│               │   │   ├── Tok = :=
+│               │   │   └── Rhs (length=1)
+│               │   │       └── CallExpr
+│               │   │           ├── Fun
+│               │   │           │   └── SelectorExpr
+│               │   │           │       ├── X
+│               │   │           │       │   └── Ident
+│               │   │           │       │       ├── NamePos = a.go:19:10
+│               │   │           │       │       ├── Name = os
+│               │   │           │       │       └── Obj
+│               │   │           │       └── Sel
+│               │   │           │           └── Ident
+│               │   │           │               ├── NamePos = a.go:19:13
+│               │   │           │               ├── Name = Open
+│               │   │           │               └── Obj
+│               │   │           ├── Lparen = a.go:19:17
+│               │   │           ├── Args (length=1)
+│               │   │           │   └── BasicLit
+│               │   │           │       ├── Kind = STRING
+│               │   │           │       └── Value = "_xxx"
+│               │   │           ├── Ellipsis = -
+│               │   │           └── Rparen = a.go:19:24
+│               │   ├── ExprStmt
+│               │   │   └── X
+│               │   │       └── CallExpr
+│               │   │           ├── Fun
+│               │   │           │   └── SelectorExpr
+│               │   │           │       ├── X
+│               │   │           │       │   └── Ident
+│               │   │           │       │       ├── NamePos = a.go:20:2
+│               │   │           │       │       ├── Name = f
+│               │   │           │       │       └── Obj
+│               │   │           │       │           └── Object
+│               │   │           │       │               ├── Kind = var
+│               │   │           │       │               ├── Name = f
+│               │   │           │       │               ├── Decl = &ast.AssignStmt{Lhs:[]ast.Expr{(*ast.Ident)(0xc00000c540), (*ast.Ident)(0xc00000c560)}, TokPos:206, Tok:47, Rhs:[]ast.Expr{(*ast.CallExpr)(0xc0000203c0)}}
+│               │   │           │       │               ├── Data = <nil>
+│               │   │           │       │               └── Type = <nil>
+│               │   │           │       └── Sel
+│               │   │           │           └── Ident
+│               │   │           │               ├── NamePos = a.go:20:4
+│               │   │           │               ├── Name = WriteString
+│               │   │           │               └── Obj
+│               │   │           ├── Lparen = a.go:20:15
+│               │   │           ├── Args (length=1)
+│               │   │           │   └── BasicLit
+│               │   │           │       ├── Kind = STRING
+│               │   │           │       └── Value = "aaaa"
+│               │   │           ├── Ellipsis = -
+│               │   │           └── Rparen = a.go:20:22
+│               │   ├── DeferStmt
+│               │   │   ├── Defer = a.go:21:2
+│               │   │   └── Call
+│               │   │       └── CallExpr
+│               │   │           ├── Fun
+│               │   │           │   └── SelectorExpr
+│               │   │           │       ├── X
+│               │   │           │       │   └── Ident
+│               │   │           │       │       ├── NamePos = a.go:21:8
+│               │   │           │       │       ├── Name = f
+│               │   │           │       │       └── Obj
+│               │   │           │       │           └── Object
+│               │   │           │       │               ├── Kind = var
+│               │   │           │       │               ├── Name = f
+│               │   │           │       │               ├── Decl = &ast.AssignStmt{Lhs:[]ast.Expr{(*ast.Ident)(0xc00000c540), (*ast.Ident)(0xc00000c560)}, TokPos:206, Tok:47, Rhs:[]ast.Expr{(*ast.CallExpr)(0xc0000203c0)}}
+│               │   │           │       │               ├── Data = <nil>
+│               │   │           │       │               └── Type = <nil>
+│               │   │           │       └── Sel
+│               │   │           │           └── Ident
+│               │   │           │               ├── NamePos = a.go:21:10
+│               │   │           │               ├── Name = Close
+│               │   │           │               └── Obj
+│               │   │           ├── Lparen = a.go:21:15
+│               │   │           ├── Args (length=0)
+│               │   │           ├── Ellipsis = -
+│               │   │           └── Rparen = a.go:21:16
+│               │   └── ReturnStmt
+│               │       ├── Return = a.go:22:2
+│               │       └── Results
+│               └── Rbrace= a.go:23:1
+├── Scope
+├── Imports (length=1)
+│   └── ImportSpec
+│       ├── Doc
+│       ├── Name
+│       ├── Path
+│       │   └── BasicLit
+│       │       ├── Kind = STRING
+│       │       └── Value = "os"
+│       ├── Comment
+│       └── EndPos = -
+├── Unresolved (length=3)
+│   ├── Ident
+│   │   ├── NamePos = a.go:6:10
+│   │   ├── Name = os
+│   │   └── Obj
+│   ├── Ident
+│   │   ├── NamePos = a.go:12:10
+│   │   ├── Name = os
+│   │   └── Obj
+│   └── Ident
+│       ├── NamePos = a.go:19:10
+│       ├── Name = os
+│       └── Obj
+└── Unresolved (length=0)
