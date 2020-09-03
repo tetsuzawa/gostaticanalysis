@@ -1,4 +1,4 @@
-package analysisutil
+package usedtype
 
 import (
 	"go/types"
