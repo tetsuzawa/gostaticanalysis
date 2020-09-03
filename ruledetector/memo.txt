@@ -1,0 +1,71 @@
+go build ./cmd/ruledetector
+./ruledetector testdata/src/a/a.go
+f command-line-arguments.Rule_osopen
+b 0
+instr os.Open("xxx":string)
+instr extract t0 #0
+instr extract t0 #1
+instr defer (*os.File).Close(t1)
+instr rundefers
+instr return
+b 1
+instr return
+
+f command-line-arguments.Rule_httpclient
+b 0
+instr net/http.NewRequest("GET":string, "https://example.com":string, nil:io.Reader)
+instr extract t0 #0
+instr extract t0 #1
+instr new net/http.Client (complit)
+instr (*net/http.Client).Do(t3, t1)
+instr extract t4 #0
+instr extract t4 #1
+instr &t5.Body [#6]
+instr *t7
+instr defer invoke t8.Close()
+instr &t5.Body [#6]
+instr *t9
+instr change interface io.Reader <- io.ReadCloser (t10)
+instr io/ioutil.ReadAll(t11)
+instr extract t12 #0
+instr extract t12 #1
+instr convert string <- []byte (t13)
+instr new [1]interface{} (varargs)
+instr &t16[0:int]
+instr make interface{} <- string (t15)
+instr *t17 = t18
+instr slice t16[:]
+instr fmt.Println(t19...)
+instr rundefers
+instr return
+b 1
+instr return
+
+f command-line-arguments.Rule_error
+b 0
+instr Rule_error$1 != nil:func() error
+instr return
+
+f command-line-arguments.Rule_spanner_tx
+b 0
+instr new cloud.google.com/go/spanner.Client (complit)
+instr (*cloud.google.com/go/spanner.Client).ReadOnlyTransaction(t0)
+instr (*cloud.google.com/go/spanner.ReadOnlyTransaction).Close(t1)
+instr return
+
+f command-line-arguments.init
+b 0
+instr *init$guard
+instr if t0 goto 2 else 1
+b 1
+instr *init$guard = true:bool
+instr errors.init()
+instr fmt.init()
+instr io/ioutil.init()
+instr net/http.init()
+instr os.init()
+instr cloud.google.com/go/spanner.init()
+instr jump 2
+b 2
+instr return
+
