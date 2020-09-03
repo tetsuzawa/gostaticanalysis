@@ -1,18 +1,18 @@
 package milestonequeue
 
-import "golang.org/x/tools/go/ssa"
+import "go/types"
 
-type MilestoneQueue []ssa.Instruction
+type MilestoneQueue []types.Object
 
-func (q *MilestoneQueue) push(f ssa.Instruction) () {
-	*q = append(*q, f)
+func (q *MilestoneQueue) push(t types.Object) {
+	*q = append(*q, t)
 }
 
-func (q *MilestoneQueue) pop() (f ssa.Instruction) {
+func (q *MilestoneQueue) pop() (t types.Object) {
 	if q == nil {
-		return
+		return nil
 	}
-	f = (*q)[0]
+	t = (*q)[0]
 	*q = (*q)[1:]
-	return f
+	return t
 }
