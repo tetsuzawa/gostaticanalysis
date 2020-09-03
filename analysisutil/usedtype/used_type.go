@@ -56,10 +56,13 @@ func isReferrerOf(a, b ssa.Value) bool {
 	return false
 }
 
-func Alloc(instr *ssa.Alloc, recv ssa.Value, f types.Type) bool {
-	//TODO pointerの考慮
-	//TODO pointerの考慮
-	return types.Identical(instr.Type(), f)
+func Alloc(instr *ssa.Alloc, f *types.TypeName) bool {
+	p, ok := instr.Type().(*types.Pointer)
+	if !ok {
+		return false
+	}
+	named, ok := p.Elem().(*types.Named)
+	return named.Obj() == f
 }
 
 func BinOp(instr *ssa.BinOp, recv ssa.Value, f *types.Func) bool {
@@ -68,21 +71,28 @@ func BinOp(instr *ssa.BinOp, recv ssa.Value, f *types.Func) bool {
 }
 
 func Defer(instr *ssa.Defer, recv ssa.Value, f *types.Func) bool {
-	common := instr.Common()
+	callCommon := instr.Common()
 
-	callee := common.StaticCallee()
+	var fn *types.Func
+	if callCommon.Method == nil {
+		callee := callCommon.StaticCallee()
+		if callee == nil {
+			return false
+		}
+	}
+	callee := callCommon.StaticCallee()
 	if callee == nil {
 		return false
 	}
-
 	fn, ok := callee.Object().(*types.Func)
 	if !ok {
 		return false
 	}
+
 	if recv != nil &&
-		common.Signature().Recv() != nil &&
-		(len(common.Args) == 0 && recv != nil || common.Args[0] != recv &&
-			!referrer(recv, common.Args[0])) {
+		callCommon.Signature().Recv() != nil &&
+		(len(callCommon.Args) == 0 && recv != nil || callCommon.Args[0] != recv &&
+			!referrer(recv, callCommon.Args[0])) {
 		return false
 	}
 	return fn == f
