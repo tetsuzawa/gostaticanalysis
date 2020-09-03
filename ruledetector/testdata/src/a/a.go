@@ -26,7 +26,7 @@ func Rule_httpclient() {
 	// 1. create *http.Client
 	client := &http.Client{}
 	// 2. call client.DO
-	resp, _ := client.Do(req) //OK
+	resp, _ := client.Do(req)
 	// 3. call response.Body.Close()
 	defer resp.Body.Close()
 	byteArray, _ := ioutil.ReadAll(resp.Body)
