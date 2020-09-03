@@ -58,6 +58,7 @@ func isReferrerOf(a, b ssa.Value) bool {
 
 func Alloc(instr *ssa.Alloc, recv ssa.Value, f types.Type) bool {
 	//TODO pointerの考慮
+	//TODO pointerの考慮
 	return types.Identical(instr.Type(), f)
 }
 
