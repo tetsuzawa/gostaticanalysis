@@ -9,7 +9,6 @@ import (
 	"golang.org/x/tools/go/analysis/passes/buildssa"
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/ssa"
-	"io"
 	"strconv"
 
 	"github.com/gostaticanalysis/analysisutil"
@@ -34,19 +33,35 @@ var Analyzer = &analysis.Analyzer{
 //const closeMethods = "Close"
 
 func run(pass *analysis.Pass) (interface{}, error) {
+	mode := packages.NeedName |
+		packages.NeedFiles |
+		packages.NeedCompiledGoFiles |
+		packages.NeedImports |
+		packages.NeedTypes |
+		packages.NeedTypesSizes |
+		packages.NeedTypesInfo |
+		packages.NeedSyntax
+	cfg := &packages.Config{Mode: mode}
+	pkgs, err := packages.Load(cfg, "io")
+	if err != nil {
+		return nil, errors.New("failed to load io")
+	}
+	var obj3 *types.Func
+	for _, pkg := range pkgs {
+		typ := pkg.Types.Scope().Lookup("Closer")
+		if typ == nil {
+			continue
+		}
+		o, _, _ := types.LookupFieldOrMethod(typ.Type(), false, pkg.Types, "Close")
+		if o == nil{
+			continue
+		}
+		obj3 = o.(*types.Func)
+	}
 	obj1 := analysisutil.ObjectOf(pass, "net/http", "Client")
 
 	obj2 := analysisutil.MethodOf(analysisutil.TypeOf(pass, "net/http", "Client"), "Do")
 	//iocloser:=analysisutil.ObjectOf(pass, "io", "Closer")
-	typ := analysisutil.TypeOf(pass, "io", "Closer")
-	obj3 := analysisutil.MethodOf(typ, "Close")
-	pkgs, ok := packages.Load(0, "io")
-	if !ok {
-		return nil,errors.New("failed to load io")
-	}
-	for _, pkg:=range pkgs{
-		//pkg.TypesInfo.
-	}
 	//fmt.Println(iocloser)
 	//obj3, _, _ := types.LookupFieldOrMethod(analysisutil.ObjectOf(pass, "io", "Closer").Type(), false, analysisutil.ObjectOf(pass, "io", "Closer").Pkg(), "Do")
 	var mq = milestonequeue.MilestoneQueue{
