@@ -18,10 +18,16 @@ func (q *MilestoneQueue) Pop() (t types.Object) {
 }
 
 func (q *MilestoneQueue) Head() types.Object {
+	if q.Len() == 0 {
+		return nil
+	}
 	return (*q)[0]
 }
 
 func (q *MilestoneQueue) Tail() types.Object {
+	if q.Len() == 0 {
+		return nil
+	}
 	return (*q)[(*q).Len()-1]
 }
 
