@@ -74,19 +74,18 @@ func Defer(instr *ssa.Defer, recv ssa.Value, f *types.Func) bool {
 	callCommon := instr.Common()
 
 	var fn *types.Func
+	var ok bool
 	if callCommon.Method == nil {
 		callee := callCommon.StaticCallee()
 		if callee == nil {
 			return false
 		}
-	}
-	callee := callCommon.StaticCallee()
-	if callee == nil {
-		return false
-	}
-	fn, ok := callee.Object().(*types.Func)
-	if !ok {
-		return false
+		fn, ok = callee.Object().(*types.Func)
+		if !ok {
+			return false
+		}
+	} else {
+		fn = callCommon.Method
 	}
 
 	if recv != nil &&
